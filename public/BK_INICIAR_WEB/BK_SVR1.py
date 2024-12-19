@@ -108,6 +108,10 @@ def valid_proof(last_proof, proof):
 
 # Funcionalidad de Sockets
 def start_socket_server():
+    """
+    Function to start the socket server.
+    It listens for incoming connections and handles communication with clients.
+    """
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(('0.0.0.0', 8080))
     server_socket.listen(1)
@@ -140,4 +144,3 @@ if __name__ == '__main__':
     # Iniciar el servidor Flask
     app.run(host='0.0.0.0', port=5000)
 
-"""

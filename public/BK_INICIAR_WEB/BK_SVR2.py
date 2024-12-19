@@ -13,8 +13,6 @@ import json
 
 # Arreglar mas adelante.,
 
-# import psutil
-
 """
 """
 def get_processor_info():
@@ -32,6 +30,10 @@ def get_processor_info():
                #server_ip = '127.0.0.1'
 
 def send_http_message():
+    """
+    Function to send an HTTP message to the server.
+    It sends a JSON payload with a message to the server and prints the response.
+    """
     url = f'http://{server_ip}:5000/mensaje'
     data = {'mensaje': 'Hola desde el cliente'}
     response = requests.post(url, json=data)
