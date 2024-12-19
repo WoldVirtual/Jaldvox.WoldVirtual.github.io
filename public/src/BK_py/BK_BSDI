@@ -1,14 +1,27 @@
+"""
+This script handles user login and blockchain operations using Flask.
+"""
+
 from flask import Flask, render_template, request, redirect, url_for, session
 import hashlib
 import datetime
 
 # Clase Blockchain refactorizada
 class Blockchain:
+    """
+    Blockchain class to manage the chain of blocks.
+    """
     def __init__(self):
+        """
+        Initialize the blockchain with a genesis block.
+        """
         self.chain = []
         self.crear_bloque_genesis()
 
     def crear_bloque_genesis(self):
+        """
+        Create the genesis block and add it to the chain.
+        """
         genesis_block = {
             'index': 0,
             'timestamp': str(datetime.datetime.now()),
@@ -19,6 +32,9 @@ class Blockchain:
         self.chain.append(genesis_block)
 
     def agregar_bloque(self, data):
+        """
+        Add a new block to the chain with the given data.
+        """
         previous_block = self.chain[-1]
         new_block = {
             'index': len(self.chain),
@@ -30,10 +46,16 @@ class Blockchain:
         self.chain.append(new_block)
 
     def hash_bloque(self, data, previous_hash):
+        """
+        Calculate the hash of a block based on its data and previous hash.
+        """
         contenido = data + previous_hash + str(datetime.datetime.now())
         return hashlib.sha256(contenido.encode()).hexdigest()
 
     def obtener_informacion_cadena(self):
+        """
+        Get information about the blockchain, including its length and blocks.
+        """
         informacion = {
             'longitud': len(self.chain),
             'bloques': [block for block in self.chain],
@@ -41,6 +63,9 @@ class Blockchain:
         return informacion
 
     def validar_cadena(self):
+        """
+        Validate the blockchain by checking the hashes of each block.
+        """
         for i in range(1, len(self.chain)):
             current_block = self.chain[i]
             previous_block = self.chain[i - 1]
@@ -61,6 +86,9 @@ app.secret_key = 'clave_secreta_para_sesiones'
 # Ruta principal - pantalla de inicio de sesión
 @app.route('/')
 def login():
+    """
+    Render the login page.
+    """
     return """
     <html>
         <head>

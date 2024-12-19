@@ -1,11 +1,9 @@
-# Boton de inicio del sistema 
-# en desarrollo #
-
+"""
+This script handles the initialization of the system, including blockchain creation and AI model training.
 """
 
 import hashlib
 import datetime
-from IA1pn import preprocesar_datos, entrenar_modelo  # Solo importamos lo necesario de IA1pn
 from BK_FN2 import process_transaction, validate_user, generate_report, update_database, send_notification
 from BK_FN3 import log_activity, send_alert, backup_data, clear_cache, sync_data
 
@@ -68,6 +66,10 @@ class SimpleBlockchain:
 
 # Función principal que orquesta todo el sistema
 def main():
+    """
+    Main function that orchestrates the entire system.
+    It creates the blockchain, processes transactions, and trains the AI model.
+    """
     # Paso 1: Crear la cadena de bloques
     blockchain = SimpleBlockchain()
 
@@ -90,4 +92,3 @@ def main():
 if __name__ == "__main__":
     main()
     
-    """
