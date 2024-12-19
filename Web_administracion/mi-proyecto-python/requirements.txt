@@ -1,0 +1,5 @@
+# Este archivo contiene las dependencias necesarias para el proyecto.
+# Puedes agregar aquí las bibliotecas que necesites, por ejemplo:
+# numpy
+# pandas
+# requests
