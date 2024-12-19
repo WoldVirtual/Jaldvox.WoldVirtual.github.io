@@ -1,5 +1,5 @@
 import os
-from blockchain.blockchain import Blockchain
+from .IABK1 import IABK1,
 from ai.model import SimpleAI
 
 class System:
